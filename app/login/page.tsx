@@ -26,7 +26,7 @@ export default async function Login({
     }
   )
   const session = (await supabase.auth.getSession()).data.session
-
+  console.log(session)
   if (session) {
     return redirect("/chat")
   }
@@ -70,6 +70,7 @@ export default async function Login({
     })
 
     if (error) {
+      console.log(error)
       return redirect("/login?message=Could not authenticate user")
     }
 
